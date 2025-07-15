@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lexis & Structure | JAMB English Prep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1E3A8A; /* Deep blue for sophistication */
+            --secondary: #F59E0B; /* Vibrant amber for energy */
+            --accent: #10B981; /* Emerald green for clarity */
+            --background: #F3F4F6; /* Light gray canvas */
+            --text-light: #111827; /* Dark gray for readability */
+            --text-dark: #111827; /* Consistent dark text */
+            --glass: rgba(255, 255, 255, 0.5); /* Glass effect */
+            --glass-hover: rgba(255, 255, 255, 0.7); /* Brighter hover */
+            --shadow: rgba(0, 0, 0, 0.25); /* Soft shadow */
+            --glow: rgba(245, 158, 11, 0.75); /* Amber glow */
+            --correct: #059669; /* Green for correct answers */
+            --incorrect: #DC2626; /* Red for incorrect answers */
+        }
+
+        [data-theme="dark"] {
+            --primary: #3B82F6; /* Bright blue for dark mode */
+            --secondary: #FBBF24; /* Warm yellow */
+            --accent: #34D399; /* Lighter green */
+            --background: #1F2937; /* Dark slate */
+            --text-light: #F9FAFB; /* Off-white */
+            --text-dark: #111827; /* Consistent dark text */
+            --glass: rgba(255, 255, 255, 0.1); /* Subtle glass */
+            --glass-hover: rgba(255, 255, 255, 0.2); /* Brighter hover */
+            --shadow: rgba(0, 0, 0, 0.6); /* Stronger shadow */
+            --glow: rgba(251, 191, 36, 0.75); /* Yellow glow */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            background: var(--background);
+            color: var(--text-light);
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+            line-height: 1.7;
+        }
+
+        .lexis-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, var(--background) 80%);
+        }
+
+        .text-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(-20px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.7; }
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .mode-toggle:hover {
+            background: var(--secondary);
+            transform: rotate(360deg) scale(1.15);
+        }
+
+        .mode-toggle i {
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 100px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 140px 20px 80px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { filter: drop-shadow(0 0 10px var(--glow)); }
+            100% { filter: drop-shadow(0 0 25px var(--accent)); }
+        }
+
+        .hero-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            animation: slideIn 1.2s ease 0.6s both;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .lexis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .lexis-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .lexis-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .lexis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .lexis-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lexis-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .lexis-icon {
+            font-size: 2.2rem;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px var(--glow);
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .lexis-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .lexis-description {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .lexis-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--secondary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .lexis-link:hover {
+            color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .detail-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            z-index: 1002;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .detail-container {
+            background: linear-gradient(135deg, var(--glass), rgba(16, 185, 129, 0.25));
+            border: 2px solid var(--secondary);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1000px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px var(--shadow);
+            position: relative;
+            color: var(--text-light);
+            animation: slideIn 0.6s ease;
+        }
+
+        .detail-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4.5vw, 2.3rem);
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-content {
+            font-family: 'Open Sans', sans-serif;
+            font-size: clamp(0.9rem, 2.2vw, 1rem);
+            line-height: 1.9;
+            color: var(--text-light);
+        }
+
+        .detail-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            transition: background 0.4s ease;
+        }
+
+        .detail-section:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .detail-subheader {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2.8vw, 1.5rem);
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .detail-subheader::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .detail-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .detail-list li {
+            position: relative;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+            line-height: 1.8;
+            transition: color 0.4s ease;
+        }
+
+        .detail-list li:hover {
+            color: var(--secondary);
+        }
+
+        .detail-list li::before {
+            content: '✍';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .detail-list li strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .quiz-container {
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+        }
+
+        .quiz-question {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            padding: 12px;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            background: var(--glass);
+            position: relative;
+        }
+
+        .quiz-option:hover {
+            background: var(--glass-hover);
+            border-color: var(--secondary);
+        }
+
+        .quiz-option input {
+            margin-right: 12px;
+        }
+
+        .quiz-option label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .quiz-option.correct::after {
+            content: '✔';
+            position: absolute;
+            right: 12px;
+            color: var(--correct);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .quiz-option.incorrect::after {
+            content: '✘';
+            position: absolute;
+            right: 12px;
+            color: var(--incorrect);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .quiz-result {
+            margin-top: 25px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-result.success {
+            color: var(--correct);
+        }
+
+        .quiz-result.error {
+            color: var(--incorrect);
+        }
+
+        .submit-quiz, .close-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .submit-quiz:hover, .close-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--glow);
+        }
+
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-top: 2px solid var(--secondary);
+            padding: 25px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.4s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 1024px) {
+            .hero { padding: 120px 15px 60px; }
+            .hero-title { font-size: clamp(2.5rem, 7vw, 4rem); }
+            .lexis-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+            .detail-container { padding: 30px; max-width: 800px; max-height: 90vh; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 100px 15px 50px; }
+            .hero-title { font-size: clamp(2rem, 6vw, 3.5rem); }
+            .section-title { font-size: clamp(1.8rem, 4.5vw, 2.2rem); }
+            .detail-container { padding: 25px; max-width: 95%; }
+        }
+
+        @media (max-width: 480px) {
+            .lexis-grid { grid-template-columns: 1fr; }
+            .lexis-card { padding: 25px; }
+            .lexis-title { font-size: 1.5rem; }
+            .detail-container { padding: 20px; max-width: 95%; }
+            .detail-title { font-size: clamp(1.4rem, 4vw, 1.8rem); }
+            .submit-quiz, .close-btn { padding: 10px 20px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body data-theme="day">
+    <div class="lexis-background">
+        <div class="text-particles" id="particles"></div>
+    </div>
+
+    <div class="mode-toggle" onclick="toggleTheme()">
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <div class="main-container">
+        <section class="hero">
+            <h1 class="hero-title">Lexis & Structure</h1>
+            <p class="hero-subtitle">Your Ultimate Guide to Mastering JAMB English with Confidence</p>
+        </section>
+
+        <div class="container">
+            <section class="section" id="lexis-concepts">
+                <h2 class="section-title">Explore Lexis & Structure</h2>
+                <div class="lexis-grid">
+                    <div class="lexis-card slide-in" data-knowledge="vocabulary">
+                        <div class="lexis-header">
+                            <div class="lexis-icon"><i class="fas fa-book"></i></div>
+                            <h3 class="lexis-title">Vocabulary</h3>
+                        </div>
+                        <div class="lexis-content">
+                            <p class="lexis-description">Build a rich vocabulary to express ideas clearly and tackle JAMB questions with ease.</p>
+                            <a href="#" class="lexis-link" onclick="toggleDetail('vocabulary')">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="lexis-card slide-in" data-knowledge="sentence-structure">
+                        <div class="lexis-header">
+                            <div class="lexis-icon"><i class="fas fa-align-left"></i></div>
+                            <h3 class="lexis-title">Sentence Structure</h3>
+                        </div>
+                        <div class="lexis-content">
+                            <p class="lexis-description">Master the art of constructing and analyzing sentences for clarity and precision.</p>
+                            <a href="#" class="lexis-link" onclick="toggleDetail('sentence-structure')">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="lexis-card slide-in" data-knowledge="grammar-rules">
+                        <div class="lexis-header">
+                            <div class="lexis-icon"><i class="fas fa-pen"></i></div>
+                            <h3 class="lexis-title">Grammar Rules</h3>
+                        </div>
+                        <div class="lexis-content">
+                            <p class="lexis-description">Understand the rules that govern correct English usage for JAMB success.</p>
+                            <a href="#" class="lexis-link" onclick="toggleDetail('grammar-rules')">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="lexis-card slide-in" data-knowledge="idioms-phrases">
+                        <div class="lexis-header">
+                            <div class="lexis-icon"><i class="fas fa-comment"></i></div>
+                            <h3 class="lexis-title">Idioms & Phrases</h3>
+                        </div>
+                        <div class="lexis-content">
+                            <p class="lexis-description">Learn figurative expressions to enhance comprehension and expression.</p>
+                            <a href="#" class="lexis-link" onclick="toggleDetail('idioms-phrases')">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="lexis-card slide-in" data-knowledge="synonyms-antonyms">
+                        <div class="lexis-header">
+                            <div class="lexis-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <h3 class="lexis-title">Synonyms & Antonyms</h3>
+                        </div>
+                        <div class="lexis-content">
+                            <p class="lexis-description">Expand your word choice with synonyms and understand opposites with antonyms.</p>
+                            <a href="#" class="lexis-link" onclick="toggleDetail('synonyms-antonyms')">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="lexis-card slide-in" data-knowledge="concord">
+                        <div class="lexis-header">
+                            <div class="lexis-icon"><i class="fas fa-link"></i></div>
+                            <h3 class="lexis-title">Concord</h3>
+                        </div>
+                        <div class="lexis-content">
+                            <p class="lexis-description">Ensure subject-verb agreement for grammatically sound sentences.</p>
+                            <a href="#" class="lexis-link" onclick="toggleDetail('concord')">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="practice-bank">
+                <h2 class="section-title">JAMB Practice Bank</h2>
+                <div class="quiz-container" id="quiz-practice-bank">
+                    <h4 class="detail-subheader">Test Your Knowledge</h4>
+                    <div class="quiz-question">1. Choose the correct synonym for "ameliorate":</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) Worsen</label></div>
+                        <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) Improve</label></div>
+                        <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) Ignore</label></div>
+                        <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) Destroy</label></div>
+                    </div>
+                    <div class="quiz-question">2. Identify the sentence type: "She sings beautifully, but she dances awkwardly."</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) Declarative</label></div>
+                        <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) Compound</label></div>
+                        <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) Interrogative</label></div>
+                        <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) Exclamatory</label></div>
+                    </div>
+                    <div class="quiz-question">3. Choose the correct form: "Neither the boys nor the girl ___ to the party."</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) is coming</label></div>
+                        <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) are coming</label></div>
+                        <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) were coming</label></div>
+                        <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) have come</label></div>
+                    </div>
+                    <div class="quiz-question">4. What does "hit the nail on the head" mean?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) Miss the point</label></div>
+                        <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) Be exactly right</label></div>
+                        <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) Cause trouble</label></div>
+                        <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) Work hard</label></div>
+                    </div>
+                    <div class="quiz-question">5. Choose the antonym for "transparent":</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) Clear</label></div>
+                        <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) Opaque</label></div>
+                        <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) Bright</label></div>
+                        <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) Visible</label></div>
+                    </div>
+                    <div class="quiz-question">6. Correct: "Each of the students ___ a book."</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) has</label></div>
+                        <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) have</label></div>
+                        <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) had</label></div>
+                        <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) are having</label></div>
+                    </div>
+                    <div class="quiz-question">7. The word "quickly" in "He runs quickly" is a/an:</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) Noun</label></div>
+                        <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) Verb</label></div>
+                        <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) Adverb</label></div>
+                        <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) Adjective</label></div>
+                    </div>
+                    <div class="quiz-question">8. What is the synonym for "meticulous":</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) Careless</label></div>
+                        <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) Careful</label></div>
+                        <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) Quick</label></div>
+                        <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) Loud</label></div>
+                    </div>
+                    <div class="quiz-question">9. "She tried, but she failed." This is a:</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) Simple sentence</label></div>
+                        <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) Compound sentence</label></div>
+                        <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) Complex sentence</label></div>
+                        <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) Compound-complex sentence</label></div>
+                    </div>
+                    <div class="quiz-question">10. What does "break the ice" mean?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) Cause a fight</label></div>
+                        <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) Start a conversation</label></div>
+                        <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) End a meeting</label></div>
+                        <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) Ignore someone</label></div>
+                    </div>
+                    <div class="quiz-question">11. Choose the correct form: "The jury ___ reached a verdict."</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q11" value="a"> <label>a) has</label></div>
+                        <div class="quiz-option"><input type="radio" name="q11" value="b"> <label>b) have</label></div>
+                        <div class="quiz-option"><input type="radio" name="q11" value="c"> <label>c) is</label></div>
+                        <div class="quiz-option"><input type="radio" name="q11" value="d"> <label>d) are</label></div>
+                    </div>
+                    <div class="quiz-question">12. Synonym for "obstruct":</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q12" value="a"> <label>a) Assist</label></div>
+                        <div class="quiz-option"><input type="radio" name="q12" value="b"> <label>b) Block</label></div>
+                        <div class="quiz-option"><input type="radio" name="q12" value="c"> <label>c) Allow</label></div>
+                        <div class="quiz-option"><input type="radio" name="q12" value="d"> <label>d) Encourage</label></div>
+                    </div>
+                    <div class="quiz-question">13. Correct: "He don’t know the answer."</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q13" value="a"> <label>a) He doesn’t know the answer.</label></div>
+                        <div class="quiz-option"><input type="radio" name="q13" value="b"> <label>b) He don’t knows the answer.</label></div>
+                        <div class="quiz-option"><input type="radio" name="q13" value="c"> <label>c) He doesn’t knows the answer.</label></div>
+                        <div class="quiz-option"><input type="radio" name="q13" value="d"> <label>d) He don’t know the answers.</label></div>
+                    </div>
+                    <div class="quiz-question">14. Antonym for "benevolent":</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q14" value="a"> <label>a) Kind</label></div>
+                        <div class="quiz-option"><input type="radio" name="q14" value="b"> <label>b) Cruel</label></div>
+                        <div class="quiz-option"><input type="radio" name="q14" value="c"> <label>c) Happy</label></div>
+                        <div class="quiz-option"><input type="radio" name="q14" value="d"> <label>d) Big</label></div>
+                    </div>
+                    <div class="quiz-question">15. "Although she was tired, she studied." This is a:</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q15" value="a"> <label>a) Simple sentence</label></div>
+                        <div class="quiz-option"><input type="radio" name="q15" value="b"> <label>b) Compound sentence</label></div>
+                        <div class="quiz-option"><input type="radio" name="q15" value="c"> <label>c) Complex sentence</label></div>
+                        <div class="quiz-option"><input type="radio" name="q15" value="d"> <label>d) Compound-complex sentence</label></div>
+                    </div>
+                    <div class="quiz-question">16. What does "take it with a grain of salt" mean?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q16" value="a"> <label>a) Believe it completely</label></div>
+                        <div class="quiz-option"><input type="radio" name="q16" value="b"> <label>b) Be skeptical</label></div>
+                        <div class="quiz-option"><input type="radio" name="q16" value="c"> <label>c) Ignore it</label></div>
+                        <div class="quiz-option"><input type="radio" name="q16" value="d"> <label>d) Celebrate it</label></div>
+                    </div>
+                    <div class="quiz-question">17. The prefix "re-" in "rewrite" means:</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q17" value="a"> <label>a) Not</label></div>
+                        <div class="quiz-option"><input type="radio" name="q17" value="b"> <label>b) Again</label></div>
+                        <div class="quiz-option"><input type="radio" name="q17" value="c"> <label>c) Before</label></div>
+                        <div class="quiz-option"><input type="radio" name="q17" value="d"> <label>d) After</label></div>
+                    </div>
+                    <div class="quiz-question">18. Correct: "The news ___ shocking."</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q18" value="a"> <label>a) is</label></div>
+                        <div class="quiz-option"><input type="radio" name="q18" value="b"> <label>b) are</label></div>
+                        <div class="quiz-option"><input type="radio" name="q18" value="c"> <label>c) were</label></div>
+                        <div class="quiz-option"><input type="radio" name="q18" value="d"> <label>d) have been</label></div>
+                    </div>
+                    <div class="quiz-question">19. Synonym for "prudent":</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q19" value="a"> <label>a) Foolish</label></div>
+                        <div class="quiz-option"><input type="radio" name="q19" value="b"> <label>b) Wise</label></div>
+                        <div class="quiz-option"><input type="radio" name="q19" value="c"> <label>c) Loud</label></div>
+                        <div class="quiz-option"><input type="radio" name="q19" value="d"> <label>d) Weak</label></div>
+                    </div>
+                    <div class="quiz-question">20. What does "spill the beans" mean?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option"><input type="radio" name="q20" value="a"> <label>a) Make a mess</label></div>
+                        <div class="quiz-option"><input type="radio" name="q20" value="b"> <label>b) Reveal a secret</label></div>
+                        <div class="quiz-option"><input type="radio" name="q20" value="c"> <label>c) Cook a meal</label></div>
+                        <div class="quiz-option"><input type="radio" name="q20" value="d"> <label>d) Start a fight</label></div>
+                    </div>
+                    <button class="submit-quiz" onclick="checkQuiz('practice-bank', {q1: 'b', q2: 'b', q3: 'a', q4: 'b', q5: 'b', q6: 'a', q7: 'c', q8: 'b', q9: 'b', q10: 'b', q11: 'a', q12: 'b', q13: 'a', q14: 'b', q15: 'c', q16: 'b', q17: 'b', q18: 'a', q19: 'b', q20: 'b'})">Submit Quiz</button>
+                    <div class="quiz-result" id="result-practice-bank"></div>
+                </div>
+            </section>
+        </div>
+
+        <div class="detail-overlay" id="detailOverlay">
+            <div class="detail-container">
+                <h3 class="detail-title" id="detailTitle"></h3>
+                <div class="detail-content" id="detailContent"></div>
+                <button class="close-btn" onclick="closeDetail()">Close</button>
+            </div>
+        </div>
+    </div>
+<footer>
+        Built with passion by <a href="https://wa.me/+2348128197651" target="_blank">Sisco Ask</a> | © <span id="footer-year"></span> English
+    </footer>
+
+    <script>
+        const knowledgeDetails = {
+    'vocabulary': {
+        title: 'Vocabulary',
+        content: `
+            <div class="detail-section">
+                <h4 class="detail-subheader">Overview</h4>
+                <p>Vocabulary is the cornerstone of effective communication and a critical component of the JAMB English exam. A strong vocabulary allows you to understand questions, interpret passages, and express ideas with precision. JAMB tests your ability to recognize word meanings, use context clues, and apply words appropriately in various scenarios.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Key Concepts</h4>
+                <ul class="detail-list">
+                    <li><strong>Denotation vs. Connotation</strong>: Denotation is the literal meaning of a word, while connotation refers to the emotions or associations it evokes. For example, "slim" and "skinny" both mean thin, but "slim" has a positive connotation, while "skinny" can feel negative.</li>
+                    <li><strong>Context Clues</strong>: These are hints within a sentence or passage that help you infer the meaning of unfamiliar words. Look for synonyms, antonyms, or explanations nearby.</li>
+                    <li><strong>Word Formation</strong>: Understanding prefixes (e.g., un-, re-), suffixes (e.g., -ful, -ness), and root words helps decode meanings. For instance, "unhappiness" combines "un-" (not), "happy" (root), and "-ness" (state).</li>
+                    <li><strong>Register</strong>: Words vary by context—formal (e.g., "commence") or informal (e.g., "start"). JAMB often tests your ability to choose the appropriate register for a given situation.</li>
+                    <li><strong>Collocations</strong>: Certain words naturally pair together (e.g., "make a decision" vs. "do a decision"). Knowing these patterns improves accuracy.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Examples</h4>
+                <ul class="detail-list">
+                    <li><strong>Question</strong>: Choose the word closest in meaning to "benevolent": (a) Cruel (b) Kind (c) Proud (d) Weak.<br><strong>Answer</strong>: (b) Kind. Benevolent refers to showing kindness or goodwill, often in a charitable sense.</li>
+                    <li><strong>Question</strong>: The prefix "dis-" in "disagree" means: (a) Together (b) Not (c) Again (d) Before.<br><strong>Answer</strong>: (b) Not. The prefix "dis-" negates the root word.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Common JAMB Mistakes</h4>
+                <ul class="detail-list">
+                    <li><strong>Mistake</strong>: Choosing a word with similar spelling but different meaning (e.g., "affect" vs. "effect"). <strong>Fix</strong>: Focus on the meaning and context, not just appearance.</li>
+                    <li><strong>Mistake</strong>: Ignoring context clues in passages. <strong>Fix</strong>: Read the entire sentence or paragraph to understand how the word is used.</li>
+                    <li><strong>Mistake</strong>: Overlooking collocations. <strong>Fix</strong>: Practice common word pairings to avoid unnatural combinations.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">JAMB Tip</h4>
+                <p>Read widely—novels, newspapers, and academic texts—to encounter new words in context. Create a vocabulary journal and practice with past JAMB questions to familiarize yourself with common tested words.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Fun Fact</h4>
+                <p>The English language has over 170,000 words in current use, but JAMB focuses on academic and commonly used words. Mastering about 2,000 high-frequency words can significantly boost your score!</p>
+            </div>
+            <div class="detail-section quiz-container" id="quiz-vocabulary">
+                <h4 class="detail-subheader">JAMB Practice Quiz</h4>
+                <div class="quiz-question">1. What is the closest meaning to "ephemeral"?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) Permanent</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) Temporary</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) Loud</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) Bright</label></div>
+                </div>
+                <div class="quiz-question">2. The prefix "un-" in "unhappy" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) Again</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) Not</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) Before</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) After</label></div>
+                </div>
+                <div class="quiz-question">3. Choose the correct word: "The manager’s decision was ___ by the team."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) applauded</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) destroyed</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) ignored</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) rejected</label></div>
+                </div>
+                <div class="quiz-question">4. What does "ubiquitous" mean?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) Rare</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) Everywhere</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) Hidden</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) Temporary</label></div>
+                </div>
+                <div class="quiz-question">5. The suffix "-less" in "fearless" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) Full of</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) Without</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) Before</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) Again</label></div>
+                </div>
+                <div class="quiz-question">6. Choose the correct collocation: "She ___ a mistake."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) did</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) made</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) took</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) got</label></div>
+                </div>
+                <div class="quiz-question">7. What is the meaning of "pragmatic"?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) Theoretical</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) Practical</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) Emotional</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) Confusing</label></div>
+                </div>
+                <div class="quiz-question">8. Choose the correct word: "His speech was very ___."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) eloquent</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) silent</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) weak</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) short</label></div>
+                </div>
+                <div class="quiz-question">9. The word "ameliorate" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) Worsen</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) Improve</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) Ignore</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) Destroy</label></div>
+                </div>
+                <div class="quiz-question">10. The prefix "pre-" in "preview" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) After</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) Before</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) Not</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) Again</label></div>
+                </div>
+                <button class="submit-quiz" onclick="checkQuiz('vocabulary', {q1: 'b', q2: 'b', q3: 'a', q4: 'b', q5: 'b', q6: 'b', q7: 'b', q8: 'a', q9: 'b', q10: 'b'})">Submit Quiz</button>
+                <div class="quiz-result" id="result-vocabulary"></div>
+            </div>
+        `
+    },
+    'sentence-structure': {
+        title: 'Sentence Structure',
+        content: `
+            <div class="detail-section">
+                <h4 class="detail-subheader">Overview</h4>
+                <p>Sentence structure is a fundamental aspect of JAMB English, testing your ability to identify, analyze, and construct sentences. Understanding how sentences are built helps you answer questions on grammar, comprehension, and composition accurately.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Key Concepts</h4>
+                <ul class="detail-list">
+                    <li><strong>Simple Sentence</strong>: Contains one independent clause with a subject and predicate (e.g., "She runs daily"). It’s straightforward but can convey complex ideas with the right vocabulary.</li>
+                    <li><strong>Compound Sentence</strong>: Joins two or more independent clauses with coordinating conjunctions (e.g., and, but, or) or semicolons (e.g., "She runs daily, but he walks slowly").</li>
+                    <li><strong>Complex Sentence</strong>: Includes one independent clause and at least one dependent clause, connected by subordinating conjunctions (e.g., because, although, when) (e.g., "She runs when she feels happy").</li>
+                    <li><strong>Compound-Complex Sentence</strong>: Combines multiple independent clauses and at least one dependent clause (e.g., "Although she was tired, she ran, and he cheered").</li>
+                    <li><strong>Clauses and Phrases</strong>: A clause has a subject and verb; a phrase does not. Recognizing these helps break down sentences.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Examples</h4>
+                <ul class="detail-list">
+                    <li><strong>Question</strong>: Identify the sentence type: "Although it rained, we went hiking, and we enjoyed it."<br><strong>Answer</strong>: Compound-complex (dependent clause: "Although it rained"; independent clauses: "we went hiking," "we enjoyed it").</li>
+                    <li><strong>Question</strong>: "The sun sets slowly." This is a:<br><strong>Answer</strong>: Simple sentence (one independent clause).</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Common JAMB Mistakes</h4>
+                <ul class="detail-list">
+                    <li><strong>Mistake</strong>: Confusing compound and complex sentences. <strong>Fix</strong>: Identify independent and dependent clauses by checking for subordinating conjunctions.</li>
+                    <li><strong>Mistake</strong>: Incorrect punctuation in compound sentences (e.g., missing commas before conjunctions). <strong>Fix</strong>: Use commas or semicolons appropriately.</li>
+                    <li><strong>Mistake</strong>: Misidentifying phrases as clauses. <strong>Fix</strong>: Ensure a clause has both a subject and a verb.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">JAMB Tip</h4>
+                <p>Practice breaking down sentences into their clauses and identifying conjunctions. Use past JAMB questions to analyze sentence types and punctuation patterns.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Fun Fact</h4>
+                <p>The longest recorded English sentence in literature is over 13,000 words, but JAMB focuses on concise, clear sentences to test your understanding!</p>
+            </div>
+            <div class="detail-section quiz-container" id="quiz-sentence-structure">
+                <h4 class="detail-subheader">JAMB Practice Quiz</h4>
+                <div class="quiz-question">1. "She danced gracefully." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">2. "He studied, but he failed." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">3. "Because it was raining, we stayed indoors." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">4. "The dog barked, and the cat ran, but we laughed." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">5. Identify the dependent clause in: "When the bell rings, we leave."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) we leave</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) When the bell rings</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) the bell rings</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) None</label></div>
+                </div>
+                <div class="quiz-question">6. "I sing loudly." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">7. "She smiled, and he waved." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">8. "If you study, you will pass." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <div class="quiz-question">9. Identify the independent clause in: "Because she was late, she missed the bus."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) Because she was late</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) she missed the bus</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) she was late</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) None</label></div>
+                </div>
+                <div class="quiz-question">10. "He ran, she walked, and they laughed." This is a:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) Simple sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) Compound sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) Complex sentence</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) Compound-complex sentence</label></div>
+                </div>
+                <button class="submit-quiz" onclick="checkQuiz('sentence-structure', {q1: 'a', q2: 'b', q3: 'c', q4: 'b', q5: 'b', q6: 'a', q7: 'b', q8: 'c', q9: 'b', q10: 'b'})">Submit Quiz</button>
+                <div class="quiz-result" id="result-sentence-structure"></div>
+            </div>
+        `
+    },
+    'grammar-rules': {
+        title: 'Grammar Rules',
+        content: `
+            <div class="detail-section">
+                <h4 class="detail-subheader">Overview</h4>
+                <p>Grammar rules form the backbone of JAMB English, ensuring you can construct and analyze sentences correctly. Mastery of grammar helps you avoid errors in sentence correction questions and enhances your overall communication skills.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Key Concepts</h4>
+                <ul class="detail-list">
+                    <li><strong>Parts of Speech</strong>: Include nouns (e.g., book), verbs (e.g., run), adjectives (e.g., big), adverbs (e.g., quickly), pronouns (e.g., he), prepositions (e.g., on), conjunctions (e.g., and), and interjections (e.g., wow).</li>
+                    <li><strong>Tenses</strong>: Cover present (e.g., I write), past (e.g., I wrote), future (e.g., I will write), and their variations like present perfect (e.g., I have written).</li>
+                    <li><strong>Punctuation</strong>: Includes commas (e.g., in lists), full stops (end sentences), apostrophes (possession or contractions), and more.</li>
+                    <li><strong>Sentence Agreement</strong>: Ensures subjects and verbs agree in number (e.g., "She runs" vs. "They run") and pronouns match their antecedents (e.g., "The boy lost his book").</li>
+                    <li><strong>Active vs. Passive Voice</strong>: Active voice (e.g., "She wrote the letter") is direct; passive voice (e.g., "The letter was written by her") emphasizes the action’s recipient.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Examples</h4>
+                <ul class="detail-list">
+                    <li><strong>Question</strong>: Correct the sentence: "The boys is playing football."<br><strong>Answer</strong>: The boys are playing football. ("Boys" is plural, so use "are").</li>
+                    <li><strong>Question</strong>: Identify the part of speech: "Beautiful" in "She is beautiful."<br><strong>Answer</strong>: Adjective (describes the noun "she").</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Common JAMB Mistakes</h4>
+                <ul class="detail-list">
+                    <li><strong>Mistake</strong>: Incorrect verb tense (e.g., "He go" instead of "He goes"). <strong>Fix</strong>: Match the tense to the context and subject.</li>
+                    <li><strong>Mistake</strong>: Misusing apostrophes (e.g., "boy’s" for plural instead of possession). <strong>Fix</strong>: Use apostrophes for possession or contractions only.</li>
+                    <li><strong>Mistake</strong>: Subject-verb disagreement. <strong>Fix</strong>: Identify the subject and ensure the verb matches in number.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">JAMB Tip</h4>
+                <p>Practice identifying parts of speech in sentences and correcting errors in mock tests. Focus on common issues like tense consistency and punctuation.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Fun Fact</h4>
+                <p>English grammar rules have roots in Latin and Old English, but JAMB tests modern standard English, emphasizing clarity and precision!</p>
+            </div>
+            <div class="detail-section quiz-container" id="quiz-grammar-rules">
+                <h4 class="detail-subheader">JAMB Practice Quiz</h4>
+                <div class="quiz-question">1. Correct: "She don’t like to read."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) She doesn’t like to read.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) She don’t likes to read.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) She doesn’t likes to read.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) She don’t like reading.</label></div>
+                </div>
+                <div class="quiz-question">2. Identify the part of speech: "Quickly" in "She runs quickly."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) Noun</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) Verb</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) Adverb</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) Adjective</label></div>
+                </div>
+                <div class="quiz-question">3. Correct: "The book belong to me."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) The book belongs to me.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) The book belong to I.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) The books belongs to me.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) The book belonging to me.</label></div>
+                </div>
+                <div class="quiz-question">4. Identify the tense: "She has just finished."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) Present simple</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) Present perfect</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) Past simple</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) Future simple</label></div>
+                </div>
+                <div class="quiz-question">5. Correct: "I seen the movie yesterday."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) I saw the movie yesterday.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) I seen the movie yesterday.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) I have seen the movie yesterday.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) I was seen the movie yesterday.</label></div>
+                </div>
+                <div class="quiz-question">6. Identify the part of speech: "Happiness" in "Happiness is contagious."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) Noun</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) Verb</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) Adjective</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) Adverb</label></div>
+                </div>
+                <div class="quiz-question">7. Correct: "She go to school every day."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) She goes to school every day.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) She go to school every day.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) She going to school every day.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) She gone to school every day.</label></div>
+                </div>
+                <div class="quiz-question">8. Identify the punctuation error: "Its a sunny day."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) Missing comma</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) Incorrect apostrophe</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) Missing full stop</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) No error</label></div>
+                </div>
+                <div class="quiz-question">9. Identify the voice: "The cake was eaten by the children."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) Active</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) Passive</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) Present</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) Future</label></div>
+                </div>
+                <div class="quiz-question">10. Correct: "The dog’s bark loudly."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) The dog bark loudly.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) The dogs bark loudly.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) The dog barks loudly.</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) The dogs barks loudly.</label></div>
+                </div>
+                <button class="submit-quiz" onclick="checkQuiz('grammar-rules', {q1: 'a', q2: 'c', q3: 'a', q4: 'b', q5: 'a', q6: 'a', q7: 'a', q8: 'b', q9: 'b', q10: 'c'})">Submit Quiz</button>
+                <div class="quiz-result" id="result-grammar-rules"></div>
+            </div>
+        `
+    },
+    'idioms-phrases': {
+        title: 'Idioms & Phrases',
+        content: `
+            <div class="detail-section">
+                <h4 class="detail-subheader">Overview</h4>
+                <p>Idioms and phrases are figurative expressions that add color to the English language. In JAMB, they test your ability to understand non-literal meanings and use expressions correctly in context.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Key Concepts</h4>
+                <ul class="detail-list">
+                    <li><strong>Idioms</strong>: Phrases with meanings not deducible from the literal words (e.g., "kick the bucket" means to die).</li>
+                    <li><strong>Phrasal Verbs</strong>: Verbs combined with prepositions or adverbs, creating unique meanings (e.g., "give up" means to surrender).</li>
+                    <li><strong>Context</strong>: The meaning of idioms and phrasal verbs depends heavily on how they’re used in a sentence.</li>
+                    <li><strong>Common Idioms</strong>: JAMB often tests frequently used idioms like "spill the beans" (reveal a secret) or "under the weather" (feeling unwell).</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Examples</h4>
+                <ul class="detail-list">
+                    <li><strong>Question</strong>: What does "beat around the bush" mean?<br><strong>Answer</strong>: Avoid talking about the main topic.</li>
+                    <li><strong>Question</strong>: "Turn down" in "She turned down the offer" means:<br><strong>Answer</strong>: Reject.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Common JAMB Mistakes</h4>
+                <ul class="detail-list">
+                    <li><strong>Mistake</strong>: Interpreting idioms literally. <strong>Fix</strong>: Memorize their figurative meanings.</li>
+                    <li><strong>Mistake</strong>: Confusing similar phrasal verbs (e.g., "give up" vs. "give in"). <strong>Fix</strong>: Practice their specific meanings in sentences.</li>
+                    <li><strong>Mistake</strong>: Misusing idioms in formal contexts. <strong>Fix</strong>: Understand when idioms are appropriate.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">JAMB Tip</h4>
+                <p>Create flashcards for common idioms and phrasal verbs. Practice using them in sentences to understand their context and meaning.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Fun Fact</h4>
+                <p>Many English idioms, like "raining cats and dogs," have origins in historical events or literature, making them fascinating to learn!</p>
+            </div>
+            <div class="detail-section quiz-container" id="quiz-idioms-phrases">
+                <h4 class="detail-subheader">JAMB Practice Quiz</h4>
+                <div class="quiz-question">1. What does "let the cat out of the bag" mean?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) Reveal a secret</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) Free an animal</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) Cause trouble</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) Start a fight</label></div>
+                </div>
+                <div class="quiz-question">2. "Give up" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) Continue</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) Surrender</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) Offer</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) Accept</label></div>
+                </div>
+                <div class="quiz-question">3. What does "hit the nail on the head" mean?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) Miss the point</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) Be exactly right</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) Cause trouble</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) Work hard</label></div>
+                </div>
+                <div class="quiz-question">4. "Break the ice" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) Cause a fight</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) Start a conversation</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) End a meeting</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) Ignore someone</label></div>
+                </div>
+                <div class="quiz-question">5. "Take it with a grain of salt" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) Believe it completely</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) Be skeptical</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) Ignore it</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) Celebrate it</label></div>
+                </div>
+                <div class="quiz-question">6. "Spill the beans" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) Make a mess</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) Reveal a secret</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) Cook a meal</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) Start a fight</label></div>
+                </div>
+                <div class="quiz-question">7. "Look after" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) Ignore</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) Take care of</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) Search for</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) Avoid</label></div>
+                </div>
+                <div class="quiz-question">8. What does "under the weather" mean?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) Feeling happy</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) Feeling unwell</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) Traveling</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) Working hard</label></div>
+                </div>
+                <div class="quiz-question">9. "Turn up" in "He didn’t turn up for the meeting" means:</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) Arrive</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) Leave</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) Cancel</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) Prepare</label></div>
+                </div>
+                <div class="quiz-question">10. What does "bite the bullet" mean?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) Avoid a task</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) Face a difficult situation</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) Start a fight</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) Give up</label></div>
+                </div>
+                <button class="submit-quiz" onclick="checkQuiz('idioms-phrases', {q1: 'a', q2: 'b', q3: 'b', q4: 'b', q5: 'b', q6: 'b', q7: 'b', q8: 'b', q9: 'a', q10: 'b'})">Submit Quiz</button>
+                <div class="quiz-result" id="result-idioms-phrases"></div>
+            </div>
+        `
+    },
+    'synonyms-antonyms': {
+        title: 'Synonyms & Antonyms',
+        content: `
+            <div class="detail-section">
+                <h4 class="detail-subheader">Overview</h4>
+                <p>Synonyms and antonyms are critical for JAMB English, testing your ability to understand word relationships and choose precise vocabulary. They enhance your comprehension and expression skills.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Key Concepts</h4>
+                <ul class="detail-list">
+                    <li><strong>Synonym</strong>: A word with the same or nearly the same meaning as another (e.g., big/large).</li>
+                    <li><strong>Antonym</strong>: A word with the opposite meaning (e.g., big/small).</li>
+                    <li><strong>Context</strong>: The correct synonym or antonym depends on the sentence’s context.</li>
+                    <li><strong>Shades of Meaning</strong>: Synonyms may have slight differences (e.g., "happy" vs. "joyful").</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Examples</h4>
+                <ul class="detail-list">
+                    <li><strong>Question</strong>: Find the antonym of "generous": (a) Kind (b) Selfish (c) Happy (d) Big.<br><strong>Answer</strong>: (b) Selfish. Generous means giving; selfish is the opposite.</li>
+                    <li><strong>Question</strong>: Synonym for "vivid": (a) Dull (b) Bright (c) Weak (d) Quiet.<br><strong>Answer</strong>: (b) Bright. Vivid refers to something clear or intense.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Common JAMB Mistakes</h4>
+                <ul class="detail-list">
+                    <li><strong>Mistake</strong>: Choosing a partial synonym that doesn’t fit the context. <strong>Fix</strong>: Consider the sentence’s meaning.</li>
+                    <li><strong>Mistake</strong>: Confusing synonyms with antonyms. <strong>Fix</strong>: Read the question carefully to identify whether a synonym or antonym is required.</li>
+                    <li><strong>Mistake</strong>: Ignoring subtle differences in synonyms. <strong>Fix</strong>: Practice with nuanced word pairs.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">JAMB Tip</h4>
+                <p>Build a word bank of synonyms and antonyms, and practice using them in sentences. Focus on context to choose the most appropriate word.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Fun Fact</h4>
+                <p>English synonyms often come from different linguistic roots, like Anglo-Saxon "big" and French "large," giving the language its rich variety!</p>
+            </div>
+            <div class="detail-section quiz-container" id="quiz-synonyms-antonyms">
+                <h4 class="detail-subheader">JAMB Practice Quiz</h4>
+                <div class="quiz-question">1. Synonym for "vivid":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) Dull</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) Bright</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) Weak</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) Quiet</label></div>
+                </div>
+                <div class="quiz-question">2. Antonym for "cautious":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) Careful</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) Reckless</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) Quiet</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) Happy</label></div>
+                </div>
+                <div class="quiz-question">3. Synonym for "meticulous":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) Careless</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) Careful</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) Quick</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) Loud</label></div>
+                </div>
+                <div class="quiz-question">4. Antonym for "transparent":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) Clear</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) Opaque</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) Bright</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) Visible</label></div>
+                </div>
+                <div class="quiz-question">5. Synonym for "obstruct":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) Assist</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) Block</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) Allow</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) Encourage</label></div>
+                </div>
+                <div class="quiz-question">6. Antonym for "benevolent":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) Kind</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) Cruel</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) Happy</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) Big</label></div>
+                </div>
+                <div class="quiz-question">7. Synonym for "prudent":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) Foolish</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) Wise</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) Loud</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) Weak</label></div>
+                </div>
+                <div class="quiz-question">8. Antonym for "abundant":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) Plentiful</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) Scarce</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) Rich</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) Heavy</label></div>
+                </div>
+                <div class="quiz-question">9. Synonym for "elaborate":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) Simple</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) Detailed</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) Brief</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) Plain</label></div>
+                </div>
+                <div class="quiz-question">10. Antonym for "hostile":</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) Aggressive</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) Friendly</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) Angry</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) Cold</label></div>
+                </div>
+                <button class="submit-quiz" onclick="checkQuiz('synonyms-antonyms', {q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'b', q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b'})">Submit Quiz</button>
+                <div class="quiz-result" id="result-synonyms-antonyms"></div>
+            </div>
+        `
+    },
+    'concord': {
+        title: 'Concord',
+        content: `
+            <div class="detail-section">
+                <h4 class="detail-subheader">Overview</h4>
+                <p>Concord, or subject-verb agreement, is a crucial grammar rule in JAMB English. It ensures that subjects and verbs align in number and person, creating grammatically correct sentences.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Key Concepts</h4>
+                <ul class="detail-list">
+                    <li><strong>Subject-Verb Agreement</strong>: Singular subjects take singular verbs (e.g., "She runs"); plural subjects take plural verbs (e.g., "They run").</li>
+                    <li><strong>Collective Nouns</strong>: Can be singular or plural depending on context (e.g., "The team is winning" vs. "The team are arguing").</li>
+                    <li><strong>Indefinite Pronouns</strong>: Words like "everyone" (singular) vs. "all" (can be plural) affect verb choice.</li>
+                    <li><strong>Proximity Rule</strong>: In "either...or" or "neither...nor" constructions, the verb agrees with the closest subject (e.g., "Neither the boys nor the girl is here").</li>
+                    <li><strong>Compound Subjects</strong>: Joined by "and" take plural verbs; joined by "or" follow the proximity rule.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Examples</h4>
+                <ul class="detail-list">
+                    <li><strong>Question</strong>: Correct: "The team are winning" or "The team is winning"?<br><strong>Answer</strong>: The team is winning. ("Team" is a singular collective noun.)</li>
+                    <li><strong>Question</strong>: "Either the boy or the girls ___ to play." (a) is (b) are.<br><strong>Answer</strong>: (b) are. The verb agrees with the closest subject, "girls."</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Common JAMB Mistakes</h4>
+                <ul class="detail-list">
+                    <li><strong>Mistake</strong>: Using plural verbs with singular collective nouns. <strong>Fix</strong>: Check the noun’s number and context.</li>
+                    <li><strong>Mistake</strong>: Ignoring the proximity rule in "either...or" sentences. <strong>Fix</strong>: Identify the closest subject.</li>
+                    <li><strong>Mistake</strong>: Misidentifying indefinite pronouns. <strong>Fix</strong>: Memorize singular vs. plural pronouns.</li>
+                </ul>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">JAMB Tip</h4>
+                <p>Practice identifying subjects in complex sentences and matching them with the correct verb form. Use mock tests to spot concord errors.</p>
+            </div>
+            <div class="detail-section">
+                <h4 class="detail-subheader">Fun Fact</h4>
+                <p>Concord errors are so common that even native speakers struggle, but JAMB expects you to master this rule for top scores!</p>
+            </div>
+            <div class="detail-section quiz-container" id="quiz-concord">
+                <h4 class="detail-subheader">JAMB Practice Quiz</h4>
+                <div class="quiz-question">1. "Either the boys or the girl ___ to sing."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q1" value="a"> <label>a) is going</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="b"> <label>b) are going</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="c"> <label>c) were going</label></div>
+                    <div class="quiz-option"><input type="radio" name="q1" value="d"> <label>d) have gone</label></div>
+                </div>
+                <div class="quiz-question">2. "The committee ___ divided on the issue."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q2" value="a"> <label>a) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="b"> <label>b) are</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="c"> <label>c) was</label></div>
+                    <div class="quiz-option"><input type="radio" name="q2" value="d"> <label>d) were</label></div>
+                </div>
+                <div class="quiz-question">3. "Each of the students ___ a book."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q3" value="a"> <label>a) has</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="b"> <label>b) have</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="c"> <label>c) had</label></div>
+                    <div class="quiz-option"><input type="radio" name="q3" value="d"> <label>d) are having</label></div>
+                </div>
+                <div class="quiz-question">4. "The jury ___ reached a verdict."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q4" value="a"> <label>a) has</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="b"> <label>b) have</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="c"> <label>c) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q4" value="d"> <label>d) are</label></div>
+                </div>
+                <div class="quiz-question">5. "Neither the teacher nor the students ___ ready."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q5" value="a"> <label>a) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="b"> <label>b) are</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="c"> <label>c) was</label></div>
+                    <div class="quiz-option"><input type="radio" name="q5" value="d"> <label>d) were</label></div>
+                </div>
+                <div class="quiz-question">6. "The team ___ playing well."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q6" value="a"> <label>a) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="b"> <label>b) are</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="c"> <label>c) was</label></div>
+                    <div class="quiz-option"><input type="radio" name="q6" value="d"> <label>d) were</label></div>
+                </div>
+                <div class="quiz-question">7. "Everybody ___ invited to the party."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q7" value="a"> <label>a) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="b"> <label>b) are</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="c"> <label>c) was</label></div>
+                    <div class="quiz-option"><input type="radio" name="q7" value="d"> <label>d) were</label></div>
+                </div>
+                <div class="quiz-question">8. "The news ___ shocking."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q8" value="a"> <label>a) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="b"> <label>b) are</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="c"> <label>c) were</label></div>
+                    <div class="quiz-option"><input type="radio" name="q8" value="d"> <label>d) have been</label></div>
+                </div>
+                <div class="quiz-question">9. "Either the girls or the boy ___ to clean the room."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q9" value="a"> <label>a) has</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="b"> <label>b) have</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="c"> <label>c) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q9" value="d"> <label>d) are</label></div>
+                </div>
+                <div class="quiz-question">10. "The audience ___ clapping loudly."</div>
+                <div class="quiz-options">
+                    <div class="quiz-option"><input type="radio" name="q10" value="a"> <label>a) is</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="b"> <label>b) are</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="c"> <label>c) was</label></div>
+                    <div class="quiz-option"><input type="radio" name="q10" value="d"> <label>d) were</label></div>
+                </div>
+                <button class="submit-quiz" onclick="checkQuiz('concord', {q1: 'a', q2: 'b', q3: 'a', q4: 'a', q5: 'b', q6: 'a', q7: 'a', q8: 'a', q9: 'a', q10: 'b'})">Submit Quiz</button>
+                <div class="quiz-result" id="result-concord"></div>
+            </div>
+        `
+    }
+};
+
+function initializeApp() {
+    createParticles();
+    setupEventListeners();
+    document.querySelectorAll('.lexis-card, .section-title').forEach(el => {
+        el.classList.add('slide-in');
+    });
+}
+
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 80; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = `${Math.random() * 3 + 1}px`;
+        particle.style.height = particle.style.width;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particlesContainer.appendChild(particle);
+    }
+}
+
+function toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    const toggleIcon = document.querySelector('.mode-toggle i');
+    if (currentTheme === 'day') {
+        body.setAttribute('data-theme', 'dark');
+        toggleIcon.classList.remove('fa-sun');
+        toggleIcon.classList.add('fa-moon');
+    } else {
+        body.setAttribute('data-theme', 'day');
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+    }
+}
+
+function toggleDetail(knowledge) {
+    document.querySelectorAll('.quiz-result').forEach(result => {
+        result.style.display = 'none';
+        result.textContent = '';
+    });
+    document.querySelectorAll('.quiz-option').forEach(option => {
+        option.classList.remove('correct', 'incorrect');
+    });
+    document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+
+    const overlay = document.getElementById('detailOverlay');
+    const title = document.getElementById('detailTitle');
+    const content = document.getElementById('detailContent');
+    const details = knowledgeDetails[knowledge];
+
+    if (details) {
+        title.textContent = details.title;
+        content.innerHTML = details.content;
+        overlay.style.display = 'flex';
+    }
+}
+
+function closeDetail() {
+    const overlay = document.getElementById('detailOverlay');
+    overlay.style.display = 'none';
+    document.querySelectorAll('.quiz-result').forEach(result => {
+        result.style.display = 'none';
+        result.textContent = '';
+    });
+    document.querySelectorAll('.quiz-option').forEach(option => {
+        option.classList.remove('correct', 'incorrect');
+    });
+    document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+}
+
+function checkQuiz(quizId, answers) {
+    const quizContainer = document.getElementById(`quiz-${quizId}`);
+    const resultElement = document.getElementById(`result-${quizId}`);
+    let correctCount = 0;
+    let totalQuestions = Object.keys(answers).length;
+    let allAnswered = true;
+
+    for (let question in answers) {
+        const selectedOption = quizContainer.querySelector(`input[name="${question}"]:checked`);
+        const correctAnswer = answers[question];
+
+        if (!selectedOption) {
+            allAnswered = false;
+            break;
+        }
+
+        const optionElement = selectedOption.parentElement;
+        if (selectedOption.value === correctAnswer) {
+            optionElement.classList.add('correct');
+            correctCount++;
+        } else {
+            optionElement.classList.add('incorrect');
+            const correctOption = quizContainer.querySelector(`input[name="${question}"][value="${correctAnswer}"]`);
+            if (correctOption) {
+                correctOption.parentElement.classList.add('correct');
+            }
+        }
+    }
+
+    if (!allAnswered) {
+        resultElement.textContent = 'Please answer all questions!';
+        resultElement.classList.remove('success', 'error');
+        resultElement.classList.add('error');
+        resultElement.style.display = 'block';
+        return;
+    }
+
+    resultElement.textContent = `You scored ${correctCount} out of ${totalQuestions}!`;
+    resultElement.classList.remove('success', 'error');
+    resultElement.classList.add(correctCount === totalQuestions ? 'success' : 'error');
+      resultElement.style.display = 'block';
+        }
+
+        function setupEventListeners() {
+            document.querySelectorAll('.lexis-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = link.closest('.lexis-card');
+                    const knowledge = card.getAttribute('data-knowledge');
+                    toggleDetail(knowledge);
+                });
+            });
+
+            document.getElementById('detailOverlay').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('detailOverlay')) {
+                    closeDetail();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeDetail();
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>
